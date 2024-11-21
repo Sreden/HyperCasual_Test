@@ -1,0 +1,11 @@
+using UnityEngine;
+
+public class MoveForward : MonoBehaviour
+{
+    private float speed = 1f;
+
+    private void Update()
+    {
+        transform.Translate(speed * Time.deltaTime * Vector3.forward);
+    }
+}
