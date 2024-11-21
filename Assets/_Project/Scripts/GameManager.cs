@@ -11,5 +11,6 @@ public class GameManager : Singleton<GameManager>
 
     public void Replay()
     {
+        SceneController.Instance.LoadScene("MainScene");
     }
 }

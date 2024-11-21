@@ -4,7 +4,29 @@ public class ColorModifier : MonoBehaviour
 {
     [SerializeField] private ColorPalette colorPalette;
     [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private bool isInitRandom;
+
     private Color currentColor = Color.black;
+    public Color CurrentColor => currentColor;
+
+    private void Start()
+    {
+        if (!isInitRandom)
+        {
+            return;
+        }
+
+        currentColor = colorPalette.GetRandomColor();
+        SetColor(currentColor);
+    }
+
+    public static bool ColorsAreEqual(Color a, Color b)
+    {
+        return Mathf.Approximately(a.r, b.r) &&
+               Mathf.Approximately(a.g, b.g) &&
+               Mathf.Approximately(a.b, b.b) &&
+               Mathf.Approximately(a.a, b.a);
+    }
 
     public void SwapColor()
     {
@@ -28,13 +50,5 @@ public class ColorModifier : MonoBehaviour
     public void SetColor(Color color)
     {
         meshRenderer.material.color = color;
-    }
-
-    private bool ColorsAreEqual(Color a, Color b)
-    {
-        return Mathf.Approximately(a.r, b.r) &&
-               Mathf.Approximately(a.g, b.g) &&
-               Mathf.Approximately(a.b, b.b) &&
-               Mathf.Approximately(a.a, b.a);
     }
 }

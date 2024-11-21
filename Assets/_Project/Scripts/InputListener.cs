@@ -23,6 +23,6 @@ public class InputListener : MonoBehaviour
 
     private void Interact_performed(InputAction.CallbackContext context)
     {
-        OnInteract.Invoke();
+        OnInteract?.Invoke();
     }
 }
