@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelDesignGenerator : MonoBehaviour
@@ -11,11 +10,16 @@ public class LevelDesignGenerator : MonoBehaviour
     [SerializeField] private int initialGrounds = 5;
     [SerializeField] private float groundLength = 20f;
 
+    [SerializeField] private float portalDistanceMin = 3f;
+    [SerializeField] private float portalDistanceMax = 10f;
+
     private Queue<GameObject> portals = new();
     private Queue<GameObject> grounds = new();
 
     private Vector3 groundSpawnPosition;
     private Vector3 portalSpawnPosition;
+
+    private float nextPortalDistance;
 
     public enum LD_Type
     {
@@ -31,18 +35,26 @@ public class LevelDesignGenerator : MonoBehaviour
             SpawnLD(LD_Type.GROUND, ref groundSpawnPosition, groundLength);
         }
 
-        portalSpawnPosition = transform.position + (player.transform.position.z + (initialGrounds - 1) * groundLength) * Vector3.forward;
+        SpawnPortal();
+    }
 
+    private void SpawnPortal()
+    {
+        portalSpawnPosition = transform.position + (player.transform.position.z + (initialGrounds - 1) * groundLength) * Vector3.forward;
         SpawnLD(LD_Type.PORTAL, ref portalSpawnPosition, 0);
+        nextPortalDistance = Random.Range(portalDistanceMin, portalDistanceMax);
     }
 
     void Update()
     {
-        portalSpawnPosition = transform.position + (player.transform.position.z + (initialGrounds - 1) * groundLength) * Vector3.forward;
-
         if (player.transform.position.z > groundSpawnPosition.z - ((initialGrounds - 1) * groundLength))
         {
             SpawnLD(LD_Type.GROUND, RemoveOldLD(LD_Type.GROUND), ref groundSpawnPosition, groundLength); // simple pooling
+        }
+
+        if (Vector3.Distance(portalSpawnPosition, transform.position + (player.transform.position.z + (initialGrounds - 1) * groundLength) * Vector3.forward) >= nextPortalDistance)
+        {
+            SpawnPortal();
         }
     }
 

@@ -314,6 +314,8 @@ MonoBehaviour:
     type: 3}
   initialGrounds: 5
   groundLength: 20
+  portalDistanceMin: 5
+  portalDistanceMax: 30
 --- !u!1 &1782301638
 GameObject:
   m_ObjectHideFlags: 0
