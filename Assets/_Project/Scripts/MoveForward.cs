@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
-    private float speed = 1f;
+    [SerializeField] private float speed = 1f;
 
     private void Update()
     {
