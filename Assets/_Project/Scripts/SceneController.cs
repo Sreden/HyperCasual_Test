@@ -11,7 +11,7 @@ public class SceneController : Singleton<SceneController>
     {
         Application.targetFrameRate = 60;
         // Load the Menu Scene initially
-        LoadScene("MenuScene");
+        LoadScene("MainScene");
     }
 
     public void LoadScene(string sceneName, Action onSceneLoaded = null)

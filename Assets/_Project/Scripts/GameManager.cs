@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public event Action OnLose;
-
     protected override void Awake()
     {
         base.Awake();
@@ -13,5 +11,6 @@ public class GameManager : Singleton<GameManager>
 
     public void Replay()
     {
+        SceneController.Instance.LoadScene("MainScene");
     }
 }
