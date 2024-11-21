@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4633036297293905901}
+  - component: {fileID: 1579544322725597422}
+  - component: {fileID: 4491354036005285866}
+  - component: {fileID: 6694104329905212217}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -32,6 +35,44 @@ Transform:
   - {fileID: 9019491452676606435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1579544322725597422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2467348552868608770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66cedd6f2568284ca452255352e7cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+--- !u!114 &4491354036005285866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2467348552868608770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036cd63453300844da76e01119eb8f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6694104329905212217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2467348552868608770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd1e5de58f2dde4bac8228ed6c3b7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorModifier: {fileID: 5502226943305171934}
 --- !u!1 &3557163347009986786
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +85,7 @@ GameObject:
   - component: {fileID: 495355926214917470}
   - component: {fileID: 232749744876211261}
   - component: {fileID: 1158465054712232133}
+  - component: {fileID: 5502226943305171934}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -137,3 +179,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5502226943305171934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557163347009986786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63455927d4ef7ed4ebf0ca4b957f5e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorPalette: {fileID: 11400000, guid: 30b97075c6d996a4ea8ac512fab12c5c, type: 2}
+  meshRenderer: {fileID: 232749744876211261}

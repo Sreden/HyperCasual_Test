@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputListener : MonoBehaviour
 {
     private IA_Game inputActions;
+
+    public event Action OnInteract;
 
     private void Awake()
     {
@@ -20,6 +23,6 @@ public class InputListener : MonoBehaviour
 
     private void Interact_performed(InputAction.CallbackContext context)
     {
-        Debug.Log("Tap");
+        OnInteract.Invoke();
     }
 }
