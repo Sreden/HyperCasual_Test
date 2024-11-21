@@ -10,8 +10,8 @@ public class LevelDesignGenerator : MonoBehaviour
     [SerializeField] private int initialGrounds = 5;
     [SerializeField] private float groundLength = 20f;
 
-    [SerializeField] private float portalDistanceMin = 3f;
-    [SerializeField] private float portalDistanceMax = 10f;
+    [SerializeField] private float portalDistanceMin = 8f;
+    [SerializeField] private float portalDistanceMax = 20f;
 
     private Queue<GameObject> portals = new();
     private Queue<GameObject> grounds = new();
@@ -20,6 +20,7 @@ public class LevelDesignGenerator : MonoBehaviour
     private Vector3 portalSpawnPosition;
 
     private float nextPortalDistance;
+    private int maxPortalsCount = 30;
 
     public enum LD_Type
     {
@@ -55,6 +56,11 @@ public class LevelDesignGenerator : MonoBehaviour
         if (Vector3.Distance(portalSpawnPosition, transform.position + (player.transform.position.z + (initialGrounds - 1) * groundLength) * Vector3.forward) >= nextPortalDistance)
         {
             SpawnPortal();
+        }
+
+        if (portals.Count > maxPortalsCount)
+        {
+            Destroy(RemoveOldLD(LD_Type.PORTAL));
         }
     }
 

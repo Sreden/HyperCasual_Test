@@ -47,4 +47,9 @@ public class Player : Singleton<Player>
             }
         }
     }
+
+    public Color GetCurrentColor()
+    {
+        return colorModifier.CurrentColor;
+    }
 }

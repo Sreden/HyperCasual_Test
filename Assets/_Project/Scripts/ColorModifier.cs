@@ -9,7 +9,7 @@ public class ColorModifier : MonoBehaviour
     private Color currentColor = Color.black;
     public Color CurrentColor => currentColor;
 
-    private void Start()
+    private void Awake()
     {
         if (!isInitRandom)
         {
