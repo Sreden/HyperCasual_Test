@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelDesignGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject groundPrefab;
+    [SerializeField] private GameObject[] groundPrefabs;
     [SerializeField] private GameObject portalPrefab;
 
     [SerializeField] private int initialGrounds = 5;
@@ -50,7 +50,8 @@ public class LevelDesignGenerator : MonoBehaviour
     {
         if (player.transform.position.z > groundSpawnPosition.z - ((initialGrounds - 1) * groundLength))
         {
-            SpawnLD(LD_Type.GROUND, RemoveOldLD(LD_Type.GROUND), ref groundSpawnPosition, groundLength); // simple pooling
+            Destroy(RemoveOldLD(LD_Type.GROUND));
+            SpawnLD(LD_Type.GROUND, ref groundSpawnPosition, groundLength);
         }
 
         if (Vector3.Distance(portalSpawnPosition, transform.position + (player.transform.position.z + (initialGrounds - 1) * groundLength) * Vector3.forward) >= nextPortalDistance)
@@ -97,9 +98,15 @@ public class LevelDesignGenerator : MonoBehaviour
     {
         return Type switch
         {
-            LD_Type.GROUND => groundPrefab,
+            LD_Type.GROUND => GetRandomGround(),
             LD_Type.PORTAL => portalPrefab,
-            _ => groundPrefab,
+            _ => GetRandomGround(),
         };
+    }
+
+    private GameObject GetRandomGround()
+    {
+        int rand = Random.Range(0, groundPrefabs.Length);
+        return groundPrefabs[rand];
     }
 }

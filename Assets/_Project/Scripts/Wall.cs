@@ -18,6 +18,15 @@ public class Wall : MonoBehaviour
         Instance_OnColorSwap(Player.Instance.GetCurrentColor());
     }
 
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+        if (Player.Instance != null)
+        {    
+            Player.Instance.OnColorSwap -= Instance_OnColorSwap;
+        }
+    }
+
     private void Instance_OnColorSwap(Color color)
     {
         if (ColorModifier.ColorsAreEqual(colorModifier.CurrentColor, color))
