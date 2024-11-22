@@ -47,7 +47,7 @@ public class Player : Singleton<Player>
             Color portalColor = wall.GetPortalColor();
             if (ColorModifier.ColorsAreEqual(colorModifier.CurrentColor, portalColor))
             {
-                moveForward.Speed += 1f;
+                moveForward.Speed += 0.5f;
             }
             else
             {
