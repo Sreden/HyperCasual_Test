@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class GameManager : Singleton<GameManager>
     private float currentScore = 0f;
     private float bestScore = 0f;
 
+    public event Action OnReady;
+
     protected override void Awake()
     {
         base.Awake();
@@ -19,7 +22,7 @@ public class GameManager : Singleton<GameManager>
     public void Play()
     {
         // Load the main game scene
-        SceneController.Instance.LoadScene("MainScene");
+        SceneController.Instance.LoadScene("MainScene", () => OnReady?.Invoke());
         scoreUi.SetActive(true);
         currentScore = 0f;
         UpdateScoreUI();

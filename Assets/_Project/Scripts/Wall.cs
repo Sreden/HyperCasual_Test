@@ -46,7 +46,7 @@ public class Wall : MonoBehaviour
             StopCoroutine(currentCoroutine);
         }
 
-        currentCoroutine = StartCoroutine(MovingProcess(wallObject.transform.localPosition, Vector3.zero, 0.5f));
+        currentCoroutine = StartCoroutine(MovingProcess(wallObject.transform.localPosition, Vector3.zero, 0.3f));
     }
 
     public void Deactivate()
@@ -56,7 +56,7 @@ public class Wall : MonoBehaviour
             StopCoroutine(currentCoroutine);
         }
 
-        currentCoroutine = StartCoroutine(MovingProcess(wallObject.transform.localPosition, GetRandomPositionInTransforms(), 0.5f));
+        currentCoroutine = StartCoroutine(MovingProcess(wallObject.transform.localPosition, GetRandomPositionInTransforms(), 0.3f));
     }
 
     public Color GetPortalColor()
