@@ -50,7 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxSpeed: 40
+  maxSpeed: 60
+  upSpeedTimer: 1
 --- !u!114 &4491354036005285866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,10 +99,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &6571843619256305638
 SphereCollider:
@@ -223,4 +224,4 @@ MonoBehaviour:
   colorPalette: {fileID: 11400000, guid: 30b97075c6d996a4ea8ac512fab12c5c, type: 2}
   isInitRandom: 0
   meshRenderer: {fileID: 232749744876211261}
-  changeColorTime: 0.5
+  changeColorTime: 0.3
