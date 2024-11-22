@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  maxSpeed: 40
 --- !u!114 &4491354036005285866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd1e5de58f2dde4bac8228ed6c3b7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorModifier: {fileID: 5502226943305171934}
+  colorModifier: {fileID: 5834531994376653850}
 --- !u!54 &4971872809189649139
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,7 +135,7 @@ GameObject:
   - component: {fileID: 9019491452676606435}
   - component: {fileID: 495355926214917470}
   - component: {fileID: 232749744876211261}
-  - component: {fileID: 5502226943305171934}
+  - component: {fileID: 5834531994376653850}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -185,7 +186,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: cf2da0b0a9c6e0947b51d0243b3e491d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -207,7 +208,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5502226943305171934
+--- !u!114 &5834531994376653850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,9 +217,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3557163347009986786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63455927d4ef7ed4ebf0ca4b957f5e9a, type: 3}
+  m_Script: {fileID: 11500000, guid: b0252063f6eb288428b39b5445fd85de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colorPalette: {fileID: 11400000, guid: 30b97075c6d996a4ea8ac512fab12c5c, type: 2}
-  meshRenderer: {fileID: 232749744876211261}
   isInitRandom: 0
+  meshRenderer: {fileID: 232749744876211261}
+  changeColorTime: 0.5

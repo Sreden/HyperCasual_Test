@@ -198,9 +198,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871096332}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0042672968, y: -0.0000000064469146, z: 0.000000002279073,
-    w: 0.99999094}
-  m_LocalPosition: {x: 0.00000012874263, y: 0.0853453, z: 0.00036353804}
+  m_LocalRotation: {x: 0.00000995084, y: -0.0000007840346, z: 0.0000002678702, w: 1}
+  m_LocalPosition: {x: -5.740078e-11, y: -0.00000030832294, z: -0.0000009024587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -252,13 +251,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 826423849}
-  groundPrefab: {fileID: 7422904447263495437, guid: bf550f860fd7f8148850148ee01f088d,
-    type: 3}
+  groundPrefabs:
+  - {fileID: 7422904447263495437, guid: 340a335699b185d4f8c629ecd152f7dc, type: 3}
+  - {fileID: 7422904447263495437, guid: 83a1cb15cca73a24eb2ee78eb49fd632, type: 3}
+  - {fileID: 7422904447263495437, guid: 84e688f94bbb53846a35c7fefce27750, type: 3}
   portalPrefab: {fileID: 1191859322947333715, guid: bbcc96d80951fb048b45950ab222aa22,
     type: 3}
-  initialGrounds: 5
+  initialGrounds: 10
   groundLength: 20
-  portalDistanceMin: 5
+  portalDistanceMin: 10
   portalDistanceMax: 30
 --- !u!1 &1782301638
 GameObject:
@@ -362,6 +363,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1579544322725597422, guid: 7ff6388ce8d9fe1419e1e3991ebc0561,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2467348552868608770, guid: 7ff6388ce8d9fe1419e1e3991ebc0561,
         type: 3}
       propertyPath: m_Name
@@ -658,8 +664,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101973528}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1711872, y: -0.000000017229926, z: 0.000000002993734, w: 0.98523855}
-  m_LocalPosition: {x: 0.00000032926198, y: 8.373205, z: -10.413899}
+  m_LocalRotation: {x: 0.16386501, y: 0.000030522384, z: -0.0000050700833, w: 0.9864828}
+  m_LocalPosition: {x: -0.0005698953, y: 8.23319, z: -10.4629}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

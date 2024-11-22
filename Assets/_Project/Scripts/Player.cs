@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(InputListener))]
+[RequireComponent(typeof(InputListener), typeof(MoveForward))]
 public class Player : Singleton<Player>
 {
     [SerializeField] private ColorModifier colorModifier;
     private InputListener inputs;
+    private MoveForward moveForward;
 
     public event Action<Color> OnColorSwap;
 
@@ -14,6 +15,7 @@ public class Player : Singleton<Player>
         base.Awake();
         
         inputs = GetComponent<InputListener>();
+        moveForward = GetComponent<MoveForward>();
         inputs.OnInteract += Inputs_OnInteract;
     }
 
@@ -21,6 +23,13 @@ public class Player : Singleton<Player>
     {
         colorModifier.SwapColor();
         OnColorSwap?.Invoke(colorModifier.CurrentColor);
+
+        
+    }
+
+    private void Update()
+    {
+        GameManager.Instance.SetScore(transform.position.z);
     }
 
     private void Inputs_OnInteract()
@@ -34,17 +43,22 @@ public class Player : Singleton<Player>
         // Check if the player collides with a wall
         if (other.TryGetComponent(out Wall wall))
         {
-            Debug.Log("hit");
             // Compare player color with portal color
             Color portalColor = wall.GetPortalColor();
             if (ColorModifier.ColorsAreEqual(colorModifier.CurrentColor, portalColor))
             {
-                
+                moveForward.Speed += 0.5f;
             }
             else
             {
-                GameManager.Instance.Replay();
+                Handheld.Vibrate();
+                GameManager.Instance.Play();
             }
         }
+    }
+
+    public Color GetCurrentColor()
+    {
+        return colorModifier.CurrentColor;
     }
 }

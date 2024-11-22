@@ -52,7 +52,7 @@ public partial class @IA_Game: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3b3df67c-b3cf-473a-9561-d6bde6c4ad51"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
