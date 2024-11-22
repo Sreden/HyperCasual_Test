@@ -39,7 +39,7 @@ public class Player : Singleton<Player>
             Color portalColor = wall.GetPortalColor();
             if (ColorModifier.ColorsAreEqual(colorModifier.CurrentColor, portalColor))
             {
-                
+                // speed up or increase score
             }
             else
             {

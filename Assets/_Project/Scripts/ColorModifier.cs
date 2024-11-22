@@ -3,8 +3,8 @@ using UnityEngine;
 public class ColorModifier : MonoBehaviour
 {
     [SerializeField] private ColorPalette colorPalette;
-    [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private bool isInitRandom;
+    [SerializeField] protected MeshRenderer meshRenderer;
 
     private Color currentColor = Color.black;
     public Color CurrentColor => currentColor;
@@ -31,24 +31,31 @@ public class ColorModifier : MonoBehaviour
     public void SwapColor()
     {
         // Switch to the next color in the palette
+        SetColor(GetNextColor());
+    }
+
+    protected Color GetNextColor()
+    {
+        Color nextColor;
         if (ColorsAreEqual(currentColor, colorPalette.color1))
         {
-            currentColor = colorPalette.color2;
+            nextColor = colorPalette.color2;
         }
         else if (ColorsAreEqual(currentColor, colorPalette.color2))
         {
-            currentColor = colorPalette.color3;
+            nextColor = colorPalette.color3;
         }
         else
         {
-            currentColor = colorPalette.color1;
+            nextColor = colorPalette.color1;
         }
 
-        SetColor(currentColor);
+        return nextColor;
     }
 
-    public void SetColor(Color color)
+    public virtual void SetColor(Color color)
     {
+        currentColor = color;
         meshRenderer.material.color = color;
     }
 }
