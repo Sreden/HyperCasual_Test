@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  maxSpeed: 40
 --- !u!114 &4491354036005285866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +223,4 @@ MonoBehaviour:
   colorPalette: {fileID: 11400000, guid: 30b97075c6d996a4ea8ac512fab12c5c, type: 2}
   isInitRandom: 0
   meshRenderer: {fileID: 232749744876211261}
+  changeColorTime: 0.5
